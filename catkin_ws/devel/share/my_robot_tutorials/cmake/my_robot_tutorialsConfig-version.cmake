@@ -1,0 +1,1 @@
+/home/kvnptl/work/ros_udemy_course/catkin_ws/devel/.private/my_robot_tutorials/share/my_robot_tutorials/cmake/my_robot_tutorialsConfig-version.cmake
