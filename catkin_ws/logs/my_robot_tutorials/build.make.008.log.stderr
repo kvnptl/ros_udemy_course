@@ -1,0 +1,33 @@
+[01m[K/home/kvnptl/work/ros_udemy_course/catkin_ws/src/my_robot_tutorials/src/smartphone.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/kvnptl/work/ros_udemy_course/catkin_ws/src/my_robot_tutorials/src/smartphone.cpp:12:9:[m[K [01;31m[Kerror: [m[K‘[01m[KSubscriber[m[K’ was not declared in this scope; did you mean ‘[01m[Kros::Subscriber[m[K’?
+   12 |     ros:[01;31m[KSubscriber[m[K sub = nh.subscribe("/robot_news_radio", 10, callback_receive_radio_data)
+      |         [01;31m[K^~~~~~~~~~[m[K
+      |         [32m[Kros::Subscriber[m[K
+In file included from [01m[K/opt/ros/noetic/include/ros/node_handle.h:33[m[K,
+                 from [01m[K/opt/ros/noetic/include/ros/ros.h:45[m[K,
+                 from [01m[K/home/kvnptl/work/ros_udemy_course/catkin_ws/src/my_robot_tutorials/src/smartphone.cpp:1[m[K:
+[01m[K/opt/ros/noetic/include/ros/subscriber.h:46:19:[m[K [01;36m[Knote: [m[K‘[01m[Kros::Subscriber[m[K’ declared here
+   46 | class ROSCPP_DECL [01;36m[KSubscriber[m[K
+      |                   [01;36m[K^~~~~~~~~~[m[K
+[01m[K/home/kvnptl/work/ros_udemy_course/catkin_ws/src/my_robot_tutorials/src/robot_news_radio_transmitter.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/kvnptl/work/ros_udemy_course/catkin_ws/src/my_robot_tutorials/src/robot_news_radio_transmitter.cpp:5:58:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[Kros[m[K’
+    5 |     ros::init(argc, argv, "robot_news_radio_transmitter")
+      |                                                          [01;31m[K^[m[K
+      |                                                          [32m[K;[m[K
+    6 |     [32m[Kros[m[K::NodeHandle nh;
+      |     [32m[K~~~[m[K                                                   
+[01m[K/home/kvnptl/work/ros_udemy_course/catkin_ws/src/my_robot_tutorials/src/robot_news_radio_transmitter.cpp:8:26:[m[K [01;31m[Kerror: [m[K‘[01m[Knh[m[K’ was not declared in this scope
+    8 |     ros::Publisher pub = [01;31m[Knh[m[K.advertise<std_msgs::String>("/robot_news_radio", 10)
+      |                          [01;31m[K^~[m[K
+[01m[K/home/kvnptl/work/ros_udemy_course/catkin_ws/src/my_robot_tutorials/src/robot_news_radio_transmitter.cpp:8:55:[m[K [01;31m[Kerror: [m[Kexpected primary-expression before ‘[01m[K>[m[K’ token
+    8 |     ros::Publisher pub = nh.advertise<std_msgs::String[01;31m[K>[m[K("/robot_news_radio", 10)
+      |                                                       [01;31m[K^[m[K
+[01m[K/home/kvnptl/work/ros_udemy_course/catkin_ws/src/my_robot_tutorials/src/robot_news_radio_transmitter.cpp:18:1:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K,[m[K’ or ‘[01m[K;[m[K’ before ‘[01m[K}[m[K’ token
+   18 | [01;31m[K}[m[K
+      | [01;31m[K^[m[K
+make[2]: *** [CMakeFiles/smartphone.dir/build.make:63: CMakeFiles/smartphone.dir/src/smartphone.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:672: CMakeFiles/smartphone.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make[2]: *** [CMakeFiles/robot_news_radio_transmitter.dir/build.make:63: CMakeFiles/robot_news_radio_transmitter.dir/src/robot_news_radio_transmitter.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:267: CMakeFiles/robot_news_radio_transmitter.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2
