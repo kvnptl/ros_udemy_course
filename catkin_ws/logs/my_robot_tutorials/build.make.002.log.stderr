@@ -1,0 +1,7 @@
+[01m[K/home/kvnptl/work/ros_udemy_course/catkin_ws/src/my_robot_tutorials/src/my_first_node.cpp:[m[K In function ‘[01m[Kint main()[m[K’:
+[01m[K/home/kvnptl/work/ros_udemy_course/catkin_ws/src/my_robot_tutorials/src/my_first_node.cpp:3:22:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[Kchar[m[K’
+    3 | int main(){int argc, [01;31m[Kchar[m[K **argv)
+      |                      [01;31m[K^~~~[m[K
+make[2]: *** [CMakeFiles/node_cpp.dir/build.make:63: CMakeFiles/node_cpp.dir/src/my_first_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:155: CMakeFiles/node_cpp.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2
