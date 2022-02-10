@@ -129,5 +129,6 @@ dmypy.json
 .pyre/
 
 # Build files
-devel/
-logs/
+devel
+logs
+build
