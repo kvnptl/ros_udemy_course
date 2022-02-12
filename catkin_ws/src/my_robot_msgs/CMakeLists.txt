@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(my_robot_tutorials)
+project(my_robot_msgs)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -8,12 +8,11 @@ project(my_robot_tutorials)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
+  message_generation
   roscpp
   rospy
   std_msgs
-  rospy_tutorials
   std_srvs
-  my_robot_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -50,18 +49,15 @@ find_package(catkin REQUIRED COMPONENTS
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
-# add_message_files(
-#   FILES
-#   Message1.msg
-#   Message2.msg
-# )
+add_message_files(
+  FILES
+)
 
 ## Generate services in the 'srv' folder
-# add_service_files(
-#   FILES
-#   Service1.srv
-#   Service2.srv
-# )
+add_service_files(
+  FILES
+  SetLed.srv
+)
 
 ## Generate actions in the 'action' folder
 # add_action_files(
@@ -71,10 +67,10 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs
-# )
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -107,8 +103,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES my_robot_tutorials
-#  CATKIN_DEPENDS roscpp rospy std_msgs
+#  LIBRARIES my_robot_msgs
+CATKIN_DEPENDS message_generation roscpp rospy std_msgs std_srvs
 #  DEPENDS system_lib
 )
 
@@ -125,7 +121,7 @@ include_directories(
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/my_robot_tutorials.cpp
+#   src/${PROJECT_NAME}/my_robot_msgs.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -136,24 +132,7 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/my_robot_tutorials_node.cpp)
-
-add_executable(node_cpp src/my_first_node.cpp)
-target_link_libraries(node_cpp ${catkin_LIBRARIES})
-
-add_executable(robot_news_radio_transmitter src/robot_news_radio_transmitter.cpp)
-target_link_libraries(robot_news_radio_transmitter ${catkin_LIBRARIES})
-
-add_executable(smartphone src/smartphone.cpp)
-target_link_libraries(smartphone ${catkin_LIBRARIES})
-
-add_executable(add_two_ints_server src/add_two_ints_server.cpp)
-target_link_libraries(add_two_ints_server ${catkin_LIBRARIES})
-
-add_executable(add_two_ints_client src/add_two_ints_client.cpp)
-target_link_libraries(add_two_ints_client ${catkin_LIBRARIES})
-
-
+# add_executable(${PROJECT_NAME}_node src/my_robot_msgs_node.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -217,7 +196,7 @@ target_link_libraries(add_two_ints_client ${catkin_LIBRARIES})
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_my_robot_tutorials.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_my_robot_msgs.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
