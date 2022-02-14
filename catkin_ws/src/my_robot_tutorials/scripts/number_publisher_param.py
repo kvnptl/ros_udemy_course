@@ -3,21 +3,25 @@
 import rospy
 from std_msgs.msg import Int64
 import random
-from std_srvs.srv import SetBool
 
 if __name__ == "__main__":
     rospy.init_node("number_publisher")
 
     pub = rospy.Publisher("/number", Int64, queue_size=10)
 
-    rate = rospy.Rate(1)
+    # get param value
+    publish_freq = rospy.get_param("/number_publish_freq")
+    rate = rospy.Rate(publish_freq)
+
+    # set param value
+    rospy.set_param("/another_param", "hallo")
 
     while not rospy.is_shutdown():
         num = random.randrange(1, 30, 2)
         msg = Int64()
         msg.data = num
+
         pub.publish(msg)
-        rospy.loginfo("Number sent: {}".format(msg.data))
         rate.sleep()
 
-    rospy.loginfo("Client node exited")
+    rospy.loginfo("Node exited")

@@ -37,6 +37,8 @@ if __name__ == "__main__":
     service = rospy.Service("/reset_number_counter",
                             SetBool, reset_counter_callback)
 
+    rospy.loginfo("Number Counter server is ready...")
+
     rospy.spin()
 
-    rospy.loginfo("Node exited")
+    rospy.loginfo("Server node exited")

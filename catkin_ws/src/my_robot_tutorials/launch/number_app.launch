@@ -1,0 +1,8 @@
+
+<launch>
+    <param name="/number_publish_frequency" type="double" value="3.0" />
+    
+    <node name="robot_news_radio_transmitter" pkg="my_robot_tutorials" type="robot_news_radio_transmitter.py" output="screen" />
+    <node name="smartphone" pkg="my_robot_tutorials" type="smartphone.py" output="screen" />
+
+</launch>
